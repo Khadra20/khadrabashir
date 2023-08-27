@@ -36,8 +36,8 @@ const loginpost = async (req, res) => {
         const token = jwt.sign(
           {
             id: usergetdata._id,
-            name: usergetdata.name,
-            role:usergetdata.role
+            email: usergetdata.email,
+           
           },
           process.env.secrate_key
         );
