@@ -33,14 +33,15 @@ const loginpost = async (req, res) => {
             message: 'username or password is incorrect',
           });
         // token using jwt
-        const token = jwt.sign(
-          {
-            id: usergetdata._id,
-            email: usergetdata.email,
+        // const token = jwt.sign(
+        //   {
+        //     id: usergetdata._id,
+        //     email: usergetdata.email,
            
-          },
-          process.env.secrate_key
-        );
+        //   },
+        //   process.env.secrate_key
+        // );
+        const token=jwt.sign({email:usergetdata.email,id:usergetdata._id},process.env.secrate_key)
         
     
         res.status(200).header('token', token).json({
